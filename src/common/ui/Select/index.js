@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import useOutsideClick from "./useOutsideClick";
+import useOutsideClick from "../../../utils/useOutsideClick";
 import { getIconImageSrc } from "../../../utils/helpers";
 import styled from "styled-components";
 import colors from "../../../utils/colors";

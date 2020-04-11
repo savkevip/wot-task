@@ -18,14 +18,23 @@ export const Card = styled.div`
   min-height: 195px;
   height: 195px;
   background: url(${props => props.url});
+  ${props => props.selected && `border: 1px solid;`}
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border: 1px solid;
   margin: 5px 15px;
+  transition: .3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  
+  &:hover {
+    border: 1px solid;
+    transform: scaleX(1.1);
+    z-index: 10;
+  }
 `;
 
 export const CardHeader = styled.div`
