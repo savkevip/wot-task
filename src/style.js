@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0 auto !important;
     padding: 0 !important;
+    overflow-x: hidden;
     font-family: 'Calibri' !important;
     color: ${colors.font};
     background-color: ${colors.main};

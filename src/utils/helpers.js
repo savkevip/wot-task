@@ -1,4 +1,5 @@
-import romanNumbers from "./romanNumbers";
+import { isUndefined } from "lodash/fp";
+import tiers from "./tiers";
 const pathToImages = require.context('../assets/images/');
 
 export function getNationImageSrc(nation) {
@@ -14,5 +15,19 @@ export function getIconImageSrc(name) {
 }
 
 export function getTierNumber(tier) {
-    return romanNumbers[tier -1];
+    return tiers[tier -1].label;
+}
+
+export function getFilters(filters) {
+    const f = {};
+    if (!isUndefined(filters["nation"])) {
+        f["nation"] = filters["nation"];
+    }
+    if (!isUndefined(filters["tier"])) {
+        f["tier"] = filters["tier"];
+    }
+    if (!isUndefined(filters["premium"])) {
+        f["premium"] = filters["premium"];
+    }
+    return f;
 }

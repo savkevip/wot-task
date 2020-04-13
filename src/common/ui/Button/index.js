@@ -3,6 +3,7 @@ import styled from "styled-components";
 import colors from "../../../utils/colors";
 
 const Component = styled.div`
+  margin: 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,11 +19,11 @@ const Component = styled.div`
   transition: .3s;
   
   &:hover {
-    background-color: ${colors.button};
+  border: 1px solid ${colors.font};
     color: ${colors.font};
   }
 `;
 
-export default function Button({ label, onClick, ...other }) {
-    return <Component {...other} onClick={onClick}>{label}</Component>
+export default function Button({ children, onClick, ...other }) {
+    return <Component {...other} onClick={onClick}>{children}</Component>
 }

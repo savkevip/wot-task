@@ -1,58 +1,54 @@
+import { filter, find, size, map } from "lodash/fp";
 import React, { useContext, useState } from "react";
 import Filters from "./components/Filters";
+import Slider from "./components/Slider";
 import Header from "../../common/Header";
-import "react-awesome-slider/dist/styles.css";
-import Details from "./components/Details";
 import { StoreContext } from "../../store";
-import { getNationImageSrc, getTankImageSrc, getTierNumber, getIconImageSrc } from "../../utils/helpers";
-import {
-    Container,
-    CardWrapper,
-    Card,
-    NameLabel,
-    TankImage,
-    CardHeader,
-    Tier,
-    TierIcon,
-    TierLabel,
-    PremiumIcon
-} from "./style";
+import { getFilters } from "../../utils/helpers";
+import { Container, Title } from "./style";
 
 export default function TanksWidget() {
-    const { tanks, setTanks, getTanks } = useContext(StoreContext);
-    const [selected, setSelected] = useState("");
+    const { tanks } = useContext(StoreContext);
+    const [filters, setFilters] = useState({});
+    const [nation, setNation] = useState("");
+    const [tier, setTier] = useState("");
+    const [premium, setPremium] = useState("");
 
-    const handleSelect = id => {
-        if (id === selected) return setSelected("");
-        return setSelected(id);
+    const filterActions = {
+        nation: setNation,
+        tier: setTier,
+        premium: setPremium
     };
 
-    const tank = tanks.find(t => t.id === selected);
+    const handleSelectFilter = (type, selected) => {
+        filterActions[type](selected);
+        setFilters({ ...filters, [type]: selected.value });
+    }
+
+    const handleClearFilter = filter => {
+        handleSelectFilter(filter.type, {});
+        const newFilters = { ...filters };
+        delete newFilters[filter.type];
+        setFilters(newFilters);
+    };
+
+    const activeFilters = getFilters(filters);
+    const filteredTanks = size(filters) ? filter(activeFilters)(tanks) : tanks;
+    const labelFilters = map(f => ({ type: f[0], value: f[1] }))(Object.entries(filters));
+
     return (
         <Container>
             <Header />
-            <Filters tanks={tanks} setTanks={setTanks} getTanks={getTanks} />
-            <Details tank={tank} setSelected={setSelected} />
-            <CardWrapper>
-                {tanks.map(({ id, nation, name, tier, premium }) => (
-                    <Card
-                        key={id}
-                        selected={id === selected}
-                        url={getNationImageSrc(nation)}
-                        onClick={() => handleSelect(id)}
-                    >
-                        <CardHeader>
-                            <Tier>
-                                <TierIcon src={getIconImageSrc("tier")} alt="tier" />
-                                <TierLabel>{getTierNumber(tier)}</TierLabel>
-                            </Tier>
-                            {premium && <PremiumIcon src={getIconImageSrc("star")} alt="premium" />}
-                        </CardHeader>
-                        <TankImage src={getTankImageSrc(`${nation}-${id}`)} alt={name} />
-                        <NameLabel>{name}</NameLabel>
-                    </Card>
-                ))}
-            </CardWrapper>
+            <Filters
+                nation={nation}
+                tier={tier}
+                premium={premium}
+                filters={labelFilters}
+                onSelectFilter={handleSelectFilter}
+                onClearFilter={handleClearFilter}
+            />
+            <Title>Garage</Title>
+            <Slider tanks={filteredTanks} />
         </Container>
     )
 }
