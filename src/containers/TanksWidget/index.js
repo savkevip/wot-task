@@ -1,4 +1,4 @@
-import { filter, find, size, map } from "lodash/fp";
+import { filter, size, map } from "lodash/fp";
 import React, { useContext, useState } from "react";
 import Filters from "./components/Filters";
 import Slider from "./components/Slider";

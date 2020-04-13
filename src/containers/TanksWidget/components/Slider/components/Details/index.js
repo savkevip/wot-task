@@ -36,7 +36,7 @@ export default function Details({ tank }) {
                     Aiming time: {randomizeValue()}
                 </Text>
             </Label>
-            <Button>
+            <Button onClick={() => alert("Loading please wait...")}>
                 <Icon src={getIconImageSrc("battle")} />
                 <Text>
                     Battle
