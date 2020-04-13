@@ -1,3 +1,4 @@
+import Icon from "../Icon";
 import styled from "styled-components";
 import colors from "../../../utils/colors";
 
@@ -32,7 +33,7 @@ export const SelectElement = styled.div`
 
 export const Dropdown = styled.div`
   margin-top: 10px;
-  width: 100%;
+  width: calc(100% - 20px);
   color: ${colors.button};
   border: 1px solid ${colors.button};
   border-radius: 5px;
@@ -50,7 +51,18 @@ export const DropdownItem = styled.span`
   cursor: pointer;
   transition: .3s;
   
+  ${props => props.checked && `
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `}
+  
   &:hover {
     color: ${colors.font};
   }
+`;
+
+export const CheckIcon = styled(Icon)`
+  width: 10px;
+  height: 10px;
 `;

@@ -11,17 +11,29 @@ const SoundIcon = styled(Icon)`
 const audio = new Audio(song);
 
 export default function SoundWidget() {
-    const [playing, setPlaying] = useState(true);
+    const [playing, setPlaying] = useState(false);
 
-    useEffect(() => handlePlay(), []);
+    useEffect(() => {
+        (async function() {
+            await handlePlay();
+        })()
+    }, []);
 
-    const handlePlay = () => {
+    const handlePause = () => {
+        setPlaying(false);
+        audio.pause();
+    }
+
+    const handlePlay = async () => {
         if (playing) {
-            setPlaying(false);
-            audio.pause();
+            handlePause();
         } else {
-            setPlaying(true);
-            audio.play();
+            try {
+                setPlaying(true);
+                await audio.play();
+            } catch (e) {
+                handlePause();
+            }
         }
     }
 

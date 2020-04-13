@@ -39,6 +39,7 @@ export default function TanksWidget() {
     return (
         <Container>
             <Header />
+            <Title>WOT Garage</Title>
             <Filters
                 nation={nation}
                 tier={tier}
@@ -47,7 +48,6 @@ export default function TanksWidget() {
                 onSelectFilter={handleSelectFilter}
                 onClearFilter={handleClearFilter}
             />
-            <Title>Garage</Title>
             <Slider tanks={filteredTanks} />
         </Container>
     )

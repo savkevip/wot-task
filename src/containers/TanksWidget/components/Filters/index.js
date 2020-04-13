@@ -15,6 +15,7 @@ export default function Filters({ nation, tier, premium, filters, onSelectFilter
                     onSelect={onSelectFilter}
                     items={nations}
                     type="nation"
+                    multi
                 />
                 <Select
                     label="select tier"
