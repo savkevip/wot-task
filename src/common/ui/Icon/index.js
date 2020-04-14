@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
 
 const Component = styled.img`
@@ -7,5 +7,5 @@ const Component = styled.img`
 `;
 
 export default function Icon(props) {
-    return <Component {...props} />
+  return <Component {...props} />;
 }

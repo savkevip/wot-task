@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import CalibriRegular from './assets/fonts/CalibriRegular.ttf';
+import CalibriRegular from "./assets/fonts/CalibriRegular.ttf";
 import colors from "./utils/colors";
 
 export const GlobalStyle = createGlobalStyle`

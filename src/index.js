@@ -1,18 +1,18 @@
-import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import React, { StrictMode } from "react";
+import ReactDOM from "react-dom";
 import TanksWidget from "./containers/TanksWidget";
 import StoreContext from "./store";
 import { GlobalStyle } from "./style";
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <StrictMode>
-      <StoreContext>
-          <TanksWidget />
-          <GlobalStyle />
-      </StoreContext>
+    <StoreContext>
+      <TanksWidget />
+      <GlobalStyle />
+    </StoreContext>
   </StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 serviceWorker.unregister();

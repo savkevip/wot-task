@@ -16,14 +16,18 @@ const Component = styled.div`
   text-transform: uppercase;
   min-width: 150px;
   cursor: pointer;
-  transition: .3s;
-  
+  transition: 0.3s;
+
   &:hover {
-  border: 1px solid ${colors.font};
+    border: 1px solid ${colors.font};
     color: ${colors.font};
   }
 `;
 
 export default function Button({ children, onClick, ...other }) {
-    return <Component {...other} onClick={onClick}>{children}</Component>
+  return (
+    <Component {...other} onClick={onClick}>
+      {children}
+    </Component>
+  );
 }

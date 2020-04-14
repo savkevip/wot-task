@@ -14,7 +14,7 @@ export const SelectElement = styled.div`
   appearance: none;
   display: block;
   padding: 10px 40px 10px 10px;
-  background: url(${props => props.url}) no-repeat 90% center;
+  background: url(${(props) => props.url}) no-repeat 90% center;
   background-size: 10px;
   background-color: ${colors.main};
   color: ${colors.button};
@@ -23,11 +23,11 @@ export const SelectElement = styled.div`
   cursor: pointer;
   text-transform: uppercase;
   box-sizing: border-box;
-  transition: .3s;
+  transition: 0.3s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  
+
   &:hover {
     color: ${colors.font};
     border: 1px solid ${colors.font};
@@ -52,14 +52,16 @@ export const DropdownItem = styled.span`
   margin: 5px 0;
   text-transform: uppercase;
   cursor: pointer;
-  transition: .3s;
-  
-  ${props => props.checked && `
+  transition: 0.3s;
+
+  ${(props) =>
+    props.checked &&
+    `
     display: flex;
     align-items: center;
     justify-content: space-between;
   `}
-  
+
   &:hover {
     color: ${colors.font};
   }

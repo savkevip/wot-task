@@ -30,16 +30,16 @@ export const SliderContainer = styled.div`
   max-width: 310px;
   height: 195px;
   margin: 0 auto;
-  
+
   &:after {
-   content: '';
-   display: block;
-   width: 100%;
-   height: 195px;
-   outline: 1px solid ${colors.font};
-   position: absolute;
-   top: 0;
-   left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 195px;
+    outline: 1px solid ${colors.font};
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 `;
 
@@ -47,7 +47,7 @@ export const SliderWrapper = styled.div`
   display: flex;
   position: absolute;
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transform: translateX(-${props => props.x}%);
+  transform: translateX(-${(props) => props.x}%);
 `;
 
 export const NoData = styled.h3`
