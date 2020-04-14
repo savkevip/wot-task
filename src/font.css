@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Calibri";
+  src: local("Calibri"), local("Calibri"),
+  url('./assets/fonts/CalibriRegular.ttf') format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}

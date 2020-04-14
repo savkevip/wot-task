@@ -10,17 +10,14 @@ import {
   clearFilter,
   selectNewFilter,
 } from "../../utils/helpers";
-import premiums from "../../utils/premiums";
 import { Container, Title } from "./style";
 
 export default function TanksWidget() {
   const { tanks } = useContext(StoreContext);
-  const [filters, setFilters] = useState({
-    premium: premiums[2],
-  });
+  const [filters, setFilters] = useState({});
   const [nation, setNation] = useState([]);
   const [tier, setTier] = useState({});
-  const [premium, setPremium] = useState(premiums[2]);
+  const [premium, setPremium] = useState();
 
   const filterActions = {
     nation: setNation,
