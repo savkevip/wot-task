@@ -6,5 +6,9 @@ export default [
     {
         label: "No",
         value: false
+    },
+    {
+        label: "All",
+        value: undefined
     }
 ]

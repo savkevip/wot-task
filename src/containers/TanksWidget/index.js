@@ -1,18 +1,19 @@
-import { filter, size, map } from "lodash/fp";
+import { size, map } from "lodash/fp";
 import React, { useContext, useState } from "react";
 import Filters from "./components/Filters";
 import Slider from "./components/Slider";
 import Header from "../../common/Header";
 import { StoreContext } from "../../store";
-import { getFilters } from "../../utils/helpers";
+import { getFilteredTanks } from "../../utils/helpers";
+import premiums from "../../utils/premiums";
 import { Container, Title } from "./style";
 
 export default function TanksWidget() {
     const { tanks } = useContext(StoreContext);
     const [filters, setFilters] = useState({});
-    const [nation, setNation] = useState("");
-    const [tier, setTier] = useState("");
-    const [premium, setPremium] = useState("");
+    const [nation, setNation] = useState([]);
+    const [tier, setTier] = useState({});
+    const [premium, setPremium] = useState(premiums[2]);
 
     const filterActions = {
         nation: setNation,
@@ -22,7 +23,7 @@ export default function TanksWidget() {
 
     const handleSelectFilter = (type, selected) => {
         filterActions[type](selected);
-        setFilters({ ...filters, [type]: selected.value });
+        setFilters({ ...filters, [type]: selected });
     }
 
     const handleClearFilter = filter => {
@@ -32,9 +33,8 @@ export default function TanksWidget() {
         setFilters(newFilters);
     };
 
-    const activeFilters = getFilters(filters);
-    const filteredTanks = size(filters) ? filter(activeFilters)(tanks) : tanks;
-    const labelFilters = map(f => ({ type: f[0], value: f[1] }))(Object.entries(filters));
+    const filteredTanks = size(filters) ? getFilteredTanks(tanks, filters) : tanks;
+    console.log(filters);
 
     return (
         <Container>
@@ -44,7 +44,7 @@ export default function TanksWidget() {
                 nation={nation}
                 tier={tier}
                 premium={premium}
-                filters={labelFilters}
+                filters={[]}
                 onSelectFilter={handleSelectFilter}
                 onClearFilter={handleClearFilter}
             />

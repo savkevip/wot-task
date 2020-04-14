@@ -6,14 +6,14 @@ export const Container = styled.div`
   margin: 10px 0;
   position: relative;
   font-size: 16px;
-  min-width: 200px;
+  width: 200px;
 `;
 
 export const SelectElement = styled.div`
-  width: 100%;
+  width: 200px;
   appearance: none;
   display: block;
-  padding: 10px;
+  padding: 10px 40px 10px 10px;
   background: url(${props => props.url}) no-repeat 90% center;
   background-size: 10px;
   background-color: ${colors.main};
@@ -24,6 +24,9 @@ export const SelectElement = styled.div`
   text-transform: uppercase;
   box-sizing: border-box;
   transition: .3s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
   &:hover {
     color: ${colors.font};
