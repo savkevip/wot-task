@@ -17,6 +17,7 @@ export default function Filters({
     <Container>
       <ActionWrapper>
         <Select
+          className="nation-select-btn"
           label="select nation"
           selected={nation}
           onSelect={onSelectFilter}
@@ -25,6 +26,7 @@ export default function Filters({
           multi
         />
         <Select
+          className="tier-select-btn"
           label="select tier"
           selected={tier}
           onSelect={onSelectFilter}
@@ -32,6 +34,7 @@ export default function Filters({
           type="tier"
         />
         <Select
+          className="premium-select-btn"
           label="is premium"
           selected={premium}
           onSelect={onSelectFilter}

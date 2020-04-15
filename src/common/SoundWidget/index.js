@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import song from "../../data/wot.mp3";
 import Icon from "../ui/Icon";
-import { getIconImageSrc } from "../../utils/helpers";
+import { getIconImageSrc } from "../../utils/path";
 import styled from "styled-components";
 
 const SoundIcon = styled(Icon)`
@@ -40,6 +40,7 @@ export default function SoundWidget() {
   const iconType = playing ? "play" : "stop";
   return (
     <SoundIcon
+      className="sound-btn"
       onClick={handlePlay}
       src={getIconImageSrc(iconType)}
       alt="controls"

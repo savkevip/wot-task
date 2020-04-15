@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../../../../common/ui/Button";
 import Icon from "../../../../../../common/ui/Icon";
-import { getIconImageSrc } from "../../../../../../utils/helpers";
+import { getIconImageSrc } from "../../../../../../utils/path";
 import { Container, Label, Text } from "./style";
 
 export default function Details() {
@@ -17,7 +17,10 @@ export default function Details() {
         <Icon src={getIconImageSrc("aim")} />
         <Text>Aiming time: {randomizeValue()}</Text>
       </Label>
-      <Button onClick={() => alert("Loading please wait...")}>
+      <Button
+        className="battle-btn"
+        onClick={() => alert("Loading please wait...")}
+      >
         <Icon src={getIconImageSrc("battle")} />
         <Text>Battle</Text>
       </Button>

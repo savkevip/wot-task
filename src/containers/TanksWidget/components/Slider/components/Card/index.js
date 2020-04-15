@@ -1,10 +1,10 @@
 import React from "react";
+import { getTierNumber } from "../../../../../../utils/helpers";
 import {
   getIconImageSrc,
   getNationImageSrc,
   getTankImageSrc,
-  getTierNumber,
-} from "../../../../../../utils/helpers";
+} from "../../../../../../utils/path";
 import {
   Container,
   CardHeader,
@@ -23,12 +23,20 @@ export default function Card({
     <Container key={id} active={active} url={getNationImageSrc(nation)}>
       <CardHeader>
         <Tier>
-          <TierIcon src={getIconImageSrc("tier")} alt="tier" />
+          <TierIcon
+            className="tier-icon-image"
+            src={getIconImageSrc("tier")}
+            alt="tier"
+          />
           <TierLabel>{getTierNumber(tier)}</TierLabel>
         </Tier>
         {premium && <PremiumIcon src={getIconImageSrc("star")} alt="premium" />}
       </CardHeader>
-      <TankImage src={getTankImageSrc(`${nation}-${id}`)} alt={name} />
+      <TankImage
+        className="model-image"
+        src={getTankImageSrc(`${nation}-${id}`)}
+        alt={name}
+      />
       <NameLabel>{name}</NameLabel>
     </Container>
   );

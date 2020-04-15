@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 import Details from "./components/Details";
 import Button from "../../../../common/ui/Button";
-import { getIconImageSrc } from "../../../../utils/helpers";
+import { getIconImageSrc } from "../../../../utils/path";
 import {
   Container,
   ButtonWrapper,
@@ -38,13 +38,13 @@ export default function Slider({ tanks }) {
     <Container>
       <ButtonWrapper>
         {currentIndex > 0 && (
-          <Button onClick={goLeft}>
+          <Button className="slider-btn-left" onClick={goLeft}>
             <LeftArrowIcon src={getIconImageSrc("left")} />
             <ButtonLabel>Previous</ButtonLabel>
           </Button>
         )}
         {currentIndex < size(tanks) - 1 && (
-          <Button onClick={goRight}>
+          <Button className="slider-btn-right" onClick={goRight}>
             <ButtonLabel>Next</ButtonLabel>
             <RightArrowIcon src={getIconImageSrc("right")} />
           </Button>

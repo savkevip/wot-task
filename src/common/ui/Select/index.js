@@ -1,7 +1,7 @@
 import { map, find, isEmpty, values, omit } from "lodash/fp";
 import React, { useState, useRef } from "react";
 import useOutsideClick from "../../../utils/useOutsideClick";
-import { getIconImageSrc } from "../../../utils/helpers";
+import { getIconImageSrc } from "../../../utils/path";
 import {
   Container,
   DropdownItem,
@@ -34,6 +34,7 @@ export default function Select({
   items,
   type,
   multi,
+  ...other
 }) {
   const [multiSelections, setMultiSelections] = useState({});
   const [toggle, setToggle] = useState(false);
@@ -65,7 +66,7 @@ export default function Select({
 
   const iconUrl = toggle ? getIconImageSrc("up") : getIconImageSrc("down");
   return (
-    <Container ref={selectRef}>
+    <Container {...other} ref={selectRef}>
       <SelectElement onClick={() => setToggle(!toggle)} url={iconUrl}>
         {getLabel(selected, label)}
       </SelectElement>

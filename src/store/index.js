@@ -1,11 +1,11 @@
 import React, { useState, createContext } from "react";
-import data from "../data/tanks.json";
+import { tanks } from "../data/tanks.json";
 
 export const StoreContext = createContext(null);
 
 export default ({ children }) => {
   const store = {
-    tanks: [...data.tanks],
+    tanks,
   };
 
   return (
