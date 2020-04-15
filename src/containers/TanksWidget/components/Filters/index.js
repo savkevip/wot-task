@@ -47,7 +47,9 @@ export default function Filters({
           <Filter
             key={`${filter.value}${index}`}
             onClick={() => onClearFilter(filter)}
-          >{`${filter.label} x`}</Filter>
+          >
+            {`${filter.label} x`}
+          </Filter>
         ))}
       </FiltersWrapper>
     </Container>

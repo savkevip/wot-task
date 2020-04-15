@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { createContext } from "react";
 import { tanks } from "../data/tanks.json";
 
 export const StoreContext = createContext(null);

@@ -1,7 +1,7 @@
 import {
   clearFilter,
   getFilterLabels,
-  selectNewFilter,
+  clearedNewFilter,
   getTierNumber,
   getFilteredTanks,
 } from "../helpers";
@@ -16,10 +16,9 @@ const filters = {
   premium: { label: "Yes", value: true },
 };
 
-const currentFilter = { label: "Yes", value: true, type: "premium" };
-
 describe("clearFilter", function () {
   it("should clear premium filter", function () {
+    const currentFilter = { label: "Yes", value: true, type: "premium" };
     const response = clearFilter(currentFilter, filters);
     expect({
       nation: [
@@ -42,7 +41,7 @@ describe("clearFilter", function () {
 
   it("should map filter after clear", function () {
     const currentNation = { label: "USA", value: "usa", type: "nation" };
-    const response = selectNewFilter(currentNation, filters.nation);
+    const response = clearedNewFilter(currentNation, filters.nation);
     expect([{ label: "Czech", value: "czech" }]).toMatchObject(response);
   });
 

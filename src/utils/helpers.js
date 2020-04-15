@@ -94,7 +94,7 @@ export function clearFilter(currentFilter, filters) {
   return newFilters;
 }
 
-export function selectNewFilter(currentFilter, nation) {
+export function clearedNewFilter(currentFilter, nation) {
   let value = {};
   if (currentFilter.type === "nation") {
     value = filter((n) => n.value !== currentFilter.value)(nation);

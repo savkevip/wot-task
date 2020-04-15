@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import song from "../../data/wot.mp3";
 import Icon from "../ui/Icon";
 import { getIconImageSrc } from "../../utils/path";
+import song from "../../data/wot.mp3";
 import styled from "styled-components";
 
 const SoundIcon = styled(Icon)`

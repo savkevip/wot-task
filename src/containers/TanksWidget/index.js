@@ -8,7 +8,7 @@ import {
   getFilteredTanks,
   getFilterLabels,
   clearFilter,
-  selectNewFilter,
+  clearedNewFilter,
 } from "../../utils/helpers";
 import { Container, Title } from "./style";
 
@@ -32,7 +32,7 @@ export default function TanksWidget() {
 
   const handleClearFilter = (currentFilter) => {
     const newFilters = clearFilter(currentFilter, filters);
-    const newSelected = selectNewFilter(currentFilter, nation);
+    const newSelected = clearedNewFilter(currentFilter, nation);
     setFilters(newFilters);
     filterActions[currentFilter.type](newSelected);
   };

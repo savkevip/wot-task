@@ -15,6 +15,7 @@ import {
   TierIcon,
   TierLabel,
 } from "./style";
+
 export default function Card({
   tank: { id, tier, name, nation, premium },
   active,
